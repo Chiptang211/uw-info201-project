@@ -23,4 +23,16 @@ shinyServer(function(input, output) {
     ggplot(displayGraph(), aes(age, totals)) +
       geom_line()
   })
+  
+  output$ageVsBmi <- renderPlot({
+    ggplot(graph, aes(x=age, y=bmi)) + 
+      geom_point(size=2, shape=21 )
+  })
+  
+  output$ageVsGlucose <- renderPlot({
+    ggplot(graph, aes(x=age, y=avg_glucose_level)) + 
+      geom_point(size=2, shape=21)
+  })
+  
+  
 })
