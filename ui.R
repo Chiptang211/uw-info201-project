@@ -4,9 +4,8 @@ shinyUI(
     fluidPage(
       tabPanel(
         img(src = "strokeimg.jpg", height = 50, width = 70),
-        h2(),
-        p(),
-        p(),
+        h2("Introduction"),
+        p("This project analyzes a stroke dataset to help users understand whether they are at risk for strokes and how they can mitigate their risks. Using several visual representations, users will be able to determine which factors contribute the most to strokes and what they need to focus on. The dataset we are working with is Kaggle's Stroke Prediction Dataset. The source of the data is confidential for patient confidentiality, but the author, a data scientist from Madrid, Spain, has earned several awards for being a datasets expert. This dataset has earned a gold ranking on Kaggle's website for being one of the best and most reliable datasets on the site."),
         "Component 1",
         titlePanel("Stroke likelihood"),
         sidebarLayout(
