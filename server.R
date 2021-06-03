@@ -7,7 +7,7 @@ data <- read.csv("healthcare-dataset-stroke-data.csv")
 shinyServer(function(input, output) {
   displayGraph <- reactive({
     graph <- data %>%
-      select(age, stroke,hypertension,ever_married,gender,smoking_status,work_type,Residence_type)%>%
+      select(age, stroke,hypertension,ever_married,gender,smoking_status,work_type,Residence_type,bmi,avg_glucose_level)%>%
       group_by(age)%>%
       filter(stroke == "1")%>%
       filter(hypertension %in% input$hypertension)%>%
@@ -20,17 +20,17 @@ shinyServer(function(input, output) {
   })
   
   output$disPlot <- renderPlot({
-    ggplot(displayGraph(), aes(age, totals)) +
+    ggplot(displayGraph(), aes(age, totals_strokes)) +
       geom_line()
   })
   
   output$ageVsBmi <- renderPlot({
-    ggplot(graph, aes(x=age, y=bmi)) + 
+    ggplot(displayGraph(), aes(x=age, y=bmi)) + 
       geom_point(size=2, shape=21 )
   })
   
   output$ageVsGlucose <- renderPlot({
-    ggplot(graph, aes(x=age, y=avg_glucose_level)) + 
+    ggplot(displayGraph(), aes(x=age, y=avg_glucose_level)) + 
       geom_point(size=2, shape=21)
   })
   
