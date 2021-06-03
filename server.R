@@ -18,21 +18,24 @@ shinyServer(function(input, output) {
       filter(Residence_type %in% input$Residence_type)%>%
       mutate(totals_strokes = n())
   })
-  
+
+  #builds the first graph based on age and # of strokes
   output$disPlot <- renderPlot({
     ggplot(displayGraph(), aes(age, totals_strokes)) +
       geom_line()
   })
-  
+
+  #builds the age versus BMI graph
   output$ageVsBmi <- renderPlot({
-    ggplot(displayGraph(), aes(x=age, y=bmi)) + 
+    ggplot(displayGraph(), aes(x=age, y=bmi)) +
       geom_point(size=2, shape=21 )
   })
-  
+
+  #builds the age versus glucose level graph
   output$ageVsGlucose <- renderPlot({
-    ggplot(displayGraph(), aes(x=age, y=avg_glucose_level)) + 
+    ggplot(displayGraph(), aes(x=age, y=avg_glucose_level)) +
       geom_point(size=2, shape=21)
   })
-  
-  
+
+
 })

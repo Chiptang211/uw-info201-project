@@ -12,7 +12,7 @@ shinyUI(navbarPage("MyApp",
                      sidebarPanel(
                        checkboxGroupInput('ever_married', label = 'Married', choices = list("Yes"="Yes",
                                                                                             "No"="No"),
-                                          selected = "Yes"),
+                                          selected = "True"),
                        checkboxGroupInput('gender', label = 'Gender', choices = list("Male"="Male",
                                                                                      "Female"="Female",
                                                                                      "Other"="Other"),
@@ -33,12 +33,14 @@ shinyUI(navbarPage("MyApp",
                                           selected = "Private"),
                        checkboxGroupInput('Residence_type', label = 'Residence Type', choices = list("Rural"="Rural",
                                                                                                      "Urban"="Urban"),
-                                          selected = "Urban"),    
+                                          selected = "Urban"),
                      ),
-                     
+
                      mainPanel(
                        plotOutput("disPlot")
-                     )
+                     ),
+                     p("This chart shows the age as compared to the amount of strokes that people have had, as an average, in that age group."),
+                     p("While being at an age where a stroke is more likely to occur does not guarantee a stroke, it is a solid indicator that it is a larger issue  than it would be for younger age groups."),
                    ),
                    tabPanel(
                      "Component 2",
@@ -67,12 +69,14 @@ shinyUI(navbarPage("MyApp",
                                           selected = "Private"),
                        checkboxGroupInput('Residence_type', label = 'Residence Type', choices = list("Rural"="Rural",
                                                                                                      "Urban"="Urban"),
-                                          selected = "Urban"),    
+                                          selected = "Urban"),
                      ),
-                     
+
                      mainPanel(
                        plotOutput("ageVsBmi")
-                     )
+                     ),
+                     p("This chart specifically focuses down on the BMI compared to age in people that have experienced strokes."),
+                     p("The use of this data comes from the averages, in which if a person is below the average BMI at their age group, they have a lesser likelihood of having a stroke as a side effect of a high BMI. "),
                    ),
                    tabPanel(
                      "Component 3",
@@ -101,12 +105,14 @@ shinyUI(navbarPage("MyApp",
                                           selected = "Private"),
                        checkboxGroupInput('Residence_type', label = 'Residence Type', choices = list("Rural"="Rural",
                                                                                                      "Urban"="Urban"),
-                                          selected = "Urban"),    
+                                          selected = "Urban"),
                      ),
-                     
+
                      mainPanel(
                        plotOutput("ageVsGlucose")
-                     )
+                     ),
+                     p("This chart specifically focuses on the glucose levels compared to age in people that have experienced strokes."),
+                     p("If someone is below the average you can visually see on the chart, they are less likely to have a stroke as a side effect of their glucose levels. However, being above or below is not an absolute, just an indication."),
                    ),
                    tabPanel(
                      p("Conclusion"),
@@ -114,5 +120,5 @@ shinyUI(navbarPage("MyApp",
                      p("After having analyzed this dataset, we are satisfied with the quality of the data since it provided many useful insights on the typical stroke patient. Since this sample has such varying cases and people with many different conditions, we believe the data gives unbiased results that are representative of the greater population. We also see no issues with this dataset harming certain population groups because it is exclusive of race and equally represents men and women."),
                      p("In the future, it would be interesting to advance this project by using a larger dataset and seeing whether these factors change based on the country people are from.")
                    )
-                   
+
 ))
