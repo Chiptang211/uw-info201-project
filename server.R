@@ -37,5 +37,15 @@ shinyServer(function(input, output) {
       geom_point(size=2, shape=21)
   })
 
+  output$myImage <- renderImage({
+    # A temp file to save the output.
+    # This file will be removed later by renderImage
+    outfile <- tempfile("strokeimg.jpg")
+    list(src = outfile,
+         contentType = "strokeimg.jpg",
+         width = 60,
+         height = 60,
+         alt = "a diagram of a stroke")
+  }, deleteFile = FALSE)
 
 })

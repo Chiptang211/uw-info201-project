@@ -1,10 +1,15 @@
 library(shiny)
+library(imager)
+
+
+im <- load.image("strokeimg.jpg")
+
 
 shinyUI(navbarPage("MyApp",
                    tabPanel(
                      p("Introduction"),
                      p("This project analyzes a stroke dataset to help users understand whether they are at risk for strokes and how they can mitigate their risks. Using several visual representations, users will be able to determine which factors contribute the most to strokes and what they need to focus on. The dataset we are working with is Kaggle's Stroke Prediction Dataset. The source of the data is confidential for patient confidentiality, but the author, a data scientist from Madrid, Spain, has earned several awards for being a datasets expert. This dataset has earned a gold ranking on Kaggle's website for being one of the best and most reliable datasets on the site."),
-                     img(src = "strokeimg.jpg", height = 50, width = 70),
+                     imageOutput("myImage"),
                    ),
                    tabPanel(
                      "Component 1",
@@ -41,6 +46,7 @@ shinyUI(navbarPage("MyApp",
                      ),
                      p("This chart shows the age as compared to the amount of strokes that people have had, as an average, in that age group."),
                      p("While being at an age where a stroke is more likely to occur does not guarantee a stroke, it is a solid indicator that it is a larger issue  than it would be for younger age groups."),
+
                    ),
                    tabPanel(
                      "Component 2",
