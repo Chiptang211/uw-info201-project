@@ -11,7 +11,7 @@ shinyUI(
           position = c("left", "right"),
           fluid = TRUE
         ),
-        
+
         sidebarPanel(
           radioButtons('ever_married', label = 'Married', choices = list("Yes"="Yes",
                                                                          "No"="No"),
@@ -36,16 +36,16 @@ shinyUI(
                        selected = "Private"),
           radioButtons('Residence_type', label = 'Residence Type', choices = list("Rural"="Rural",
                                                                                   "Urban"="Urban"),
-                       selected = "Urban"),    
+                       selected = "Urban"),
                      ),
-        
-        
+
+
         mainPanel(
           plotOutput("disPlot"),
           textOutput()
         )
       ),
-      
+
       tabPanel(
         "Component 2",
         titlePanel(),
