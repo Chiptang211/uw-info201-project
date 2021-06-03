@@ -13,21 +13,39 @@ shinyUI(
         ),
         
         sidebarPanel(
-          radioButtons('Inputs', label = 'Demographic Choices', choices = list("ever_married" = c("Yes", "No"), 
-                                                                               "gender" = c("Male", "Female", "Other"),
-                                                                               "hypertension" = c("0", "1"), 
-                                                                               "smoking_status" = c("formerly smoked", "never smoked", 
-                                                                                                    "smokes", "unknown"),
-                                                                               "work_type" = c("children", "Govt_job", "Self-employed",
-                                                                                               "Private", "Never_worked"),
-                                                                               "Residence_type" = c("Urban", "Rural"))),
-          uiOutput()
-        ),
+          radioButtons('ever_married', label = 'Married', choices = list("Yes"="Yes",
+                                                                         "No"="No"),
+                       selected = "Yes"),
+          radioButtons('gender', label = 'Gender', choices = list("Male"="Male",
+                                                                  "Female"="Female",
+                                                                  "Other"="Other"),
+                       selected = "Other"),
+          radioButtons('hypertension', label = 'Hypertension', choices = list("Yes"=1,
+                                                                              "No"=0),
+                       selected = 1),
+          radioButtons('smoking_status', label = 'Smoking', choices = list("Formerly"="formerly smoked",
+                                                                           "Never"="never smoked",
+                                                                           "Smokes"="smokes",
+                                                                           "Unknown"="Unknown"),
+                       selected = "smokes"),
+          radioButtons('work_type', label = 'Work Type', choices = list("Children"="children",
+                                                                        "Government"="Govt_job",
+                                                                        "Never Worked"="Never_worked",
+                                                                        "Private"="Private",
+                                                                        "Self-employed"="Self-employed"),
+                       selected = "Private"),
+          radioButtons('Residence_type', label = 'Residence Type', choices = list("Rural"="Rural",
+                                                                                  "Urban"="Urban"),
+                       selected = "Urban"),    
+                     ),
+        
+        
         mainPanel(
           plotOutput("disPlot"),
           textOutput()
         )
       ),
+      
       tabPanel(
         "Component 2",
         titlePanel(),
