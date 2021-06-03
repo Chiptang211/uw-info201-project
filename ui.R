@@ -3,6 +3,10 @@ library(shiny)
 shinyUI(
     fluidPage(
       tabPanel(
+        img(src = "strokeimg.jpg", height = 50, width = 70),
+        h2(),
+        p(),
+        p(),
         "Component 1",
         titlePanel("Stroke likelihood"),
         sidebarLayout(
