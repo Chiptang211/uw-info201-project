@@ -25,13 +25,13 @@ shinyUI(navbarPage("Stroke Susceptibility",
                                                                                               "Unknown"="Unknown"),
                                           selected = "smokes")
                      ),
-                     
+
                      mainPanel(
                        plotOutput("disPlot")
                      ),
-                     p("This chart shows the age as compared to the amount of strokes that people have had, as an average, in that age group."),
+                     p("This chart shows the age as compared to the amount of strokes that people have had, as an average, in that age group, with options based on gender and smoking."),
                      p("While being at an age where a stroke is more likely to occur does not guarantee a stroke, it is a solid indicator that it is a larger issue  than it would be for younger age groups."),
-                     
+
                    ),
                    tabPanel(
                      "Age vs. BMI/Glucose",
@@ -49,12 +49,12 @@ shinyUI(navbarPage("Stroke Susceptibility",
                                                                                                      "Unknown"="Unknown"),
                                           selected = "smokes")
                      ),
-                     
+
                      mainPanel(
                        plotOutput("bmiAndglucoseGraph"),
                      ),
-                     p("This chart specifically focuses down on the BMI compared to age in people that have experienced strokes."),
-                     p("The use of this data comes from the averages, in which if a person is below the average BMI at their age group, they have a lesser likelihood of having a stroke as a side effect of a high BMI. "),
+                     p("This chart specifically focuses down on the BMI or Glucose options compared to age in people that have experienced strokes."),
+                     p("The use of this data comes from the averages, in which if a person is below the average BMI or glucose level at their age group, they have a lesser likelihood of having a stroke as a side effect of a high BMI or high glucose level. "),
                    ),
                    tabPanel(
                      "Heart Disease vs. Strokes",
@@ -85,12 +85,12 @@ shinyUI(navbarPage("Stroke Susceptibility",
                                                                                                        "Urban"="Urban"),
                                           selected = "Urban"),
                      ),
-                     
+
                      mainPanel(
                        plotOutput("heartdiseaseVsstrokeGraph")
                      ),
-                     p("This chart specifically focuses on the glucose levels compared to age in people that have experienced strokes."),
-                     p("If someone is below the average you can visually see on the chart, they are less likely to have a stroke as a side effect of their glucose levels. However, being above or below is not an absolute, just an indication."),
+                     p("This chart specifically focuses on the possibility of strokes compared to heart disease, with several conditions that affect heart health over a lifetime to select from as customization."),
+                     p("This chart is better used for comparing one's situation personally, where it is more evident with set conditions to see whether personal conditions lead to more strokes, or if people in the same conditions tend to avoid having strokes.s"),
                    ),
                    tabPanel(
                      p("Conclusion"),
@@ -98,5 +98,5 @@ shinyUI(navbarPage("Stroke Susceptibility",
                      p("After having analyzed this dataset, we are satisfied with the quality of the data since it provided many useful insights on the typical stroke patient. Since this sample has such varying cases and people with many different conditions, we believe the data gives unbiased results that are representative of the greater population. We also see no issues with this dataset harming certain population groups because it is exclusive of race and equally represents men and women."),
                      p("In the future, it would be interesting to advance this project by using a larger dataset and seeing whether these factors change based on the country people are from.")
                    )
-                   
+
 ))
