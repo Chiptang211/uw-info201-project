@@ -80,13 +80,4 @@ shinyServer(function(input, output) {
       geom_histogram(stat = "identity")
   })
   
-  output$stat <- renderPrint ({
-    string_stats <- data %>%
-      select(stroke,bmi) %>%
-      filter(stroke == "1") %>%
-      omit() %>%
-    sum_stat$string_stats <- avg(bmi)
-    print(sum_stat)
-  })
-  
 })
