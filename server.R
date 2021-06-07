@@ -2,7 +2,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-data <- read.csv("~/Desktop/Info201/uw-info201-project/healthcare-dataset-stroke-data.csv")
+data <- read.csv("healthcare-dataset-stroke-data.csv")
 
 shinyServer(function(input, output) {
   displayGraph <- reactive({
@@ -78,6 +78,15 @@ shinyServer(function(input, output) {
   output$heartdiseaseVsstrokeGraph <- renderPlot({
     ggplot(heartdiseaseVsstroke(), aes(heart_disease,stroke))+
       geom_histogram(stat = "identity")
+  })
+  
+  output$stat <- renderPrint ({
+    string_stats <- data %>%
+      select(stroke,bmi) %>%
+      filter(stroke == "1") %>%
+      omit() %>%
+    sum_stat$string_stats <- avg(bmi)
+    print(sum_stat)
   })
   
 })
